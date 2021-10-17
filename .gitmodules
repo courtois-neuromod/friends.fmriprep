@@ -2,3 +2,8 @@
 	path = sourcedata/smriprep
 	url = /lustre03/project/6003287/datasets/cneuromod_processed/fmriprep/..//smriprep/
 	datalad-id = f3ef9683-0a58-4d2b-b4eb-d33d8fc3fd2b
+[submodule "sourcedata/things"]
+	path = sourcedata/things
+	url = /project/rrg-pbellec/ria-beluga/alias/cneuromod_things
+	datalad-id = 5151ad3c-321e-4111-abf0-95fee0dcbb90
+	datalad-url = "ria+file:///project/rrg-pbellec/ria-beluga#~cneuromod_things"
