@@ -17,7 +17,7 @@ export SINGULARITYENV_TEMPLATEFLOW_HOME="sourcedata/templateflow/"
 
 
 export LOCAL_DATASET=$SLURM_TMPDIR/${SLURM_JOB_NAME//-/}/
-flock --verbose /project/rrg-pbellec/ria-beluga#~friends.fmriprep/.datalad_lock datalad clone ria+file:///project/rrg-pbellec/ria-beluga#~friends.fmriprep $LOCAL_DATASET
+flock --verbose /project/rrg-pbellec/ria-beluga/alias/friends.fmriprep/.datalad_lock datalad clone ria+file:///project/rrg-pbellec/ria-beluga#~friends.fmriprep $LOCAL_DATASET
 cd $LOCAL_DATASET
 datalad get -n -r -R1 . # get sourcedata/*
 datalad get -s ria-beluga-storage -r sourcedata/templateflow/tpl-{MNI152NLin2009cAsym,OASIS30ANTs,fsLR,fsaverage,MNI152NLin6Asym}
@@ -34,9 +34,9 @@ fi
 datalad containers-run -m 'fMRIPrep_sub-01/ses-022' -n containers/bids-fmriprep --input sourcedata/friends/sub-01/ses-022/fmap/ --input sourcedata/friends/sub-01/ses-022/func/ --input sourcedata/templateflow/tpl-MNI152NLin2009cAsym/ --input sourcedata/templateflow/tpl-OASIS30ANTs/ --input sourcedata/templateflow/tpl-fsLR/ --input sourcedata/templateflow/tpl-fsaverage/ --input sourcedata/templateflow/tpl-MNI152NLin6Asym/ --output . --input 'sourcedata/smriprep/sub-01/anat/' --input sourcedata/smriprep/sourcedata/freesurfer/fsaverage/ --input sourcedata/smriprep/sourcedata/freesurfer/sub-01/ -- -w ./workdir --participant-label 01 --anat-derivatives ./sourcedata/smriprep --fs-subjects-dir ./sourcedata/smriprep/sourcedata/freesurfer --bids-filter-file code/fmriprep_study-friends_sub-01_ses-022_bids_filters.json --output-layout bids --ignore slicetiming --use-syn-sdc --output-spaces MNI152NLin2009cAsym T1w:res-iso2mm --cifti-output 91k --notrack --write-graph --skip_bids_validation --omp-nthreads 8 --nprocs 16 --mem_mb 65536 --fs-license-file code/freesurfer.license --resource-monitor sourcedata/friends ./ participant 
 fmriprep_exitcode=$?
 
-flock --verbose /project/rrg-pbellec/ria-beluga#~friends.fmriprep/.datalad_lock datalad push -d ./ --to origin
+flock --verbose /project/rrg-pbellec/ria-beluga/alias/friends.fmriprep/.datalad_lock datalad push -d ./ --to origin
 if [ -d sourcedata/freesurfer ] ; then
-    flock --verbose /project/rrg-pbellec/ria-beluga#~friends.fmriprep/.datalad_lock datalad push -d sourcedata/freesurfer $LOCAL_DATASET --to origin
+    flock --verbose /project/rrg-pbellec/ria-beluga/alias/friends.fmriprep/.datalad_lock datalad push -d sourcedata/freesurfer $LOCAL_DATASET --to origin
 fi 
 if [ -e $LOCAL_DATASET/resource_monitor.json ] ; then cp $LOCAL_DATASET/resource_monitor.json /scratch/bpinsard/fmriprep_study-friends_sub-01_ses-022_resource_monitor.json ; fi 
 if [ $fmriprep_exitcode -ne 0 ] ; then cp -R $LOCAL_DATASET /scratch/bpinsard/fmriprep_study-friends_sub-01_ses-022 ; fi 
