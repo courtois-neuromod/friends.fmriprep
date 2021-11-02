@@ -3,7 +3,7 @@
 #SBATCH --job-name=fmriprep_study-friends_sub-04_ses-012.job
 #SBATCH --output=/lustre03/project/6003287/datasets/cneuromod_processed/fmriprep/friends/code/fmriprep_study-friends_sub-04_ses-012.out
 #SBATCH --error=/lustre03/project/6003287/datasets/cneuromod_processed/fmriprep/friends/code/fmriprep_study-friends_sub-04_ses-012.err
-#SBATCH --time=5:00:00
+#SBATCH --time=8:00:00
 #SBATCH --cpus-per-task=12
 #SBATCH --mem-per-cpu=4096M
 #SBATCH --mail-type=BEGIN
