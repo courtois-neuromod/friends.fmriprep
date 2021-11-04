@@ -1,0 +1,98 @@
+[environment]
+cpu_count = 40
+exec_env = "singularity"
+free_mem = 128.8
+overcommit_policy = "heuristic"
+overcommit_limit = "50%"
+nipype_version = "1.6.1"
+templateflow_version = "0.7.1"
+version = "20.2.3"
+
+[execution]
+anat_derivatives = "/localscratch/bpinsard.27321075.0/fmriprep_studyfriends_sub04_ses008.job/sourcedata/smriprep"
+bids_dir = "/localscratch/bpinsard.27321075.0/fmriprep_studyfriends_sub04_ses008.job/sourcedata/friends"
+bids_database_dir = "/localscratch/bpinsard.27321075.0/fmriprep_studyfriends_sub04_ses008.job/workdir/20211103-042921_1d0ce3ab-4a05-4e3d-924b-8593b446f9b8/bids_db"
+bids_description_hash = "9ca70c89064cc064895edf92543104f384b7f624e6b49f17e40d234f4536190b"
+boilerplate_only = false
+sloppy = false
+debug = []
+fmriprep_dir = "/localscratch/bpinsard.27321075.0/fmriprep_studyfriends_sub04_ses008.job"
+fs_license_file = "/localscratch/bpinsard.27321075.0/fmriprep_studyfriends_sub04_ses008.job/code/freesurfer.license"
+fs_subjects_dir = "/localscratch/bpinsard.27321075.0/fmriprep_studyfriends_sub04_ses008.job/sourcedata/smriprep/sourcedata/freesurfer"
+layout = "BIDS Layout: ..._ses008.job/sourcedata/friends | Subjects: 6 | Sessions: 202 | Runs: 65"
+log_dir = "/localscratch/bpinsard.27321075.0/fmriprep_studyfriends_sub04_ses008.job/logs"
+log_level = 25
+low_mem = false
+md_only_boilerplate = false
+notrack = true
+output_dir = "/localscratch/bpinsard.27321075.0/fmriprep_studyfriends_sub04_ses008.job"
+output_layout = "bids"
+output_spaces = "MNI152NLin2009cAsym:res-native T1w:res-iso2mm"
+reports_only = false
+run_uuid = "20211103-042921_1d0ce3ab-4a05-4e3d-924b-8593b446f9b8"
+participant_label = [ "04",]
+templateflow_home = "/localscratch/bpinsard.27321075.0/fmriprep_studyfriends_sub04_ses008.job/sourcedata/templateflow"
+work_dir = "/localscratch/bpinsard.27321075.0/fmriprep_studyfriends_sub04_ses008.job/workdir"
+write_graph = true
+
+[workflow]
+anat_only = false
+aroma_err_on_warn = false
+aroma_melodic_dim = -200
+bold2t1w_dof = 6
+bold2t1w_init = "register"
+cifti_output = "91k"
+fmap_bspline = false
+force_syn = false
+hires = true
+ignore = []
+longitudinal = false
+medial_surface_nan = false
+regressors_all_comps = false
+regressors_dvars_th = 1.5
+regressors_fd_th = 0.5
+run_reconall = true
+skull_strip_fixed_seed = false
+skull_strip_template = "OASIS30ANTs"
+skull_strip_t1w = "force"
+spaces = "MNI152NLin2009cAsym:res-native T1w:res-iso2mm fsaverage:den-164k MNI152NLin6Asym:res-2"
+use_aroma = false
+use_syn_sdc = true
+
+[nipype]
+crashfile_format = "txt"
+get_linked_libs = false
+memory_gb = 49.152
+nprocs = 12
+omp_nthreads = 8
+plugin = "MultiProc"
+resource_monitor = true
+stop_on_first_crash = false
+
+[seeds]
+master = 21555
+ants = 28993
+numpy = 39768
+
+[nipype.plugin_args]
+maxtasksperchild = 1
+raise_insufficient = false
+
+[execution.bids_filters.t1w]
+reconstruction = "<Query.NONE: 1>"
+acquisition = "<Query.NONE: 1>"
+session = [ "001", "002",]
+
+[execution.bids_filters.t2w]
+reconstruction = "<Query.NONE: 1>"
+acquisition = "<Query.NONE: 1>"
+session = [ "001", "002",]
+
+[execution.bids_filters.bold]
+session = [ "008",]
+
+[execution.bids_filters.sbref]
+session = [ "008",]
+
+[execution.bids_filters.fmap]
+session = [ "008",]
