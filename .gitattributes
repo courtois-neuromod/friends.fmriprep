@@ -1,10 +1,15 @@
-
 * annex.backend=MD5E
 **/.git* annex.largefiles=nothing
-* annex.largefiles=(largerthan=100kb)
 *.json annex.largefiles=nothing
 *.txt annex.largefiles=nothing
-*.tsv annex.largefiles=nothing
+*.css annex.largefiles=nothing
+*.js annex.largefiles=nothing
+*.toml annex.largefiles=nothing
+*.tsv annex.largefiles=largerthan=100kb
+*.html annex.largefiles=nothing
+*.md annex.largefiles=nothing
+*.bib annex.largefiles=nothing
+*.tex annex.largefiles=nothing
 *.nii.gz annex.largefiles=anything
 *.tgz annex.largefiles=anything
-*_scans.tsv annex.largefiles=anything
+*.sh annex.largefiles=nothing
