@@ -1,20 +1,16 @@
 [submodule "sourcedata/templateflow"]
 	path = sourcedata/templateflow
-	url = /project/rrg-pbellec/ria-beluga/alias/templateflow
+	url = git@github.com:templateflow/templateflow.git
 	datalad-id = c79c47b6-d0fb-11e8-aa11-64006a8a730f
-	datalad-url = "ria+file:///project/rrg-pbellec/ria-beluga#~templateflow"
 [submodule "containers"]
 	path = containers
-	url = /project/rrg-pbellec/ria-beluga/alias/repronim/containers
+	url = git@github.com:ReproNim/containers.git
 	datalad-id = b02e63c2-62c1-11e9-82b0-52540040489c
-	datalad-url = "ria+file:///project/rrg-pbellec/ria-beluga#~repronim/containers"
 [submodule "sourcedata/smriprep"]
 	path = sourcedata/smriprep
-	url = /project/rrg-pbellec/ria-beluga/alias/cneuromod.anat.smriprep
+	url = git@github.com:courtois-neuromod/anat.smriprep.git
 	datalad-id = f3ef9683-0a58-4d2b-b4eb-d33d8fc3fd2b
-	datalad-url = "ria+file:///project/rrg-pbellec/ria-beluga#~cneuromod.anat.smriprep"
 [submodule "sourcedata/friends"]
 	path = sourcedata/friends
-	url = /project/rrg-pbellec/ria-beluga/alias/cneuromod.friends.raw
+	url = git@github.com:courtois-neuromod/friends.git
 	datalad-id = 66738676-1d20-11ea-9a9e-3ea8d101da1a
-	datalad-url = "ria+file:///project/rrg-pbellec/ria-beluga#~cneuromod.friends.raw"
