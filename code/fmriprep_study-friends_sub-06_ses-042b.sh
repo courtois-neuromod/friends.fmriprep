@@ -18,7 +18,7 @@ set -e -u -x
 
 export LOCAL_DATASET=$SLURM_TMPDIR/${SLURM_JOB_NAME//-/}/
 export SINGULARITYENV_TEMPLATEFLOW_HOME="${LOCAL_DATASET}/sourcedata/templateflow/"
-flock --verbose /lustre03/project/rrg-pbellec/ria-beluga/alias/cneuromod.friends.fmriprep/.datalad_lock datalad clone ria+file:///lustre03/project/rrg-pbellec/ria-beluga#~cneuromod.friends.fmriprep@rel/2022 $LOCAL_DATASET
+flock --verbose /lustre03/project/rrg-pbellec/ria-beluga/alias/cneuromod.friends.fmriprep/.datalad_lock datalad clone ria+file:///lustre03/project/rrg-pbellec/ria-beluga#~cneuromod.friends.fmriprep@maint/2022 $LOCAL_DATASET
 cd $LOCAL_DATASET
 datalad get -s ria-beluga-storage -J 4 -n -r -R1 . # get sourcedata/* containers
 datalad get -s ria-beluga-storage -J 4 -r sourcedata/templateflow/tpl-{MNI152NLin2009cAsym,OASIS30ANTs,fsLR,fsaverage,MNI152NLin6Asym}
@@ -31,7 +31,7 @@ if [ -d sourcedata/freesurfer ] ; then
   git -C sourcedata/freesurfer checkout -b $SLURM_JOB_NAME
 fi
 
-git submodule foreach  --recursive git-annex enableremote ria-beluga-storage
+git submodule foreach  --recursive bash -c "git-annex enableremote ria-beluga-storage|true"
 
 datalad containers-run -m 'fMRIPrep_sub-06/ses-042' -n bids-fmriprep --input sourcedata/templateflow/tpl-MNI152NLin2009cAsym/ --input sourcedata/templateflow/tpl-OASIS30ANTs/ --input sourcedata/templateflow/tpl-fsLR/ --input sourcedata/templateflow/tpl-fsaverage/ --input sourcedata/templateflow/tpl-MNI152NLin6Asym/ --output . --input 'sourcedata/friends/sub-06/ses-042/fmap/' --input 'sourcedata/friends/sub-06/ses-042/func/' --input 'sourcedata/smriprep/sub-06/anat/' --input sourcedata/smriprep/sourcedata/freesurfer/fsaverage/ --input sourcedata/smriprep/sourcedata/freesurfer/sub-06/ -- -w ./workdir --participant-label 06 --anat-derivatives ./sourcedata/smriprep --fs-subjects-dir ./sourcedata/smriprep/sourcedata/freesurfer --bids-filter-file code/fmriprep_study-friends_sub-06_ses-042_bids_filters.json --output-layout bids --ignore slicetiming --use-syn-sdc --output-spaces MNI152NLin2009cAsym T1w:res-iso2mm --cifti-output 91k --notrack --write-graph --skip_bids_validation --omp-nthreads 8 --nprocs 12 --mem_mb 49152 -t s06e02a s06e02b --fs-license-file code/freesurfer.license sourcedata/friends ./ participant 
 fmriprep_exitcode=$?
