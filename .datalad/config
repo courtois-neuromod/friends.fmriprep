@@ -6,3 +6,4 @@
 	updateurl = shub://ReproNim/containers:bids-fmriprep--20.2.0
 [datalad "get"]
 	subdataset-source-candidate-620cneuromodhttp = https://github.com/courtois-neuromod/{name}.git
+	subdataset-source-candidate-625cneuromodhttp = https://github.com/courtois-neuromod/anat.{name}.git
