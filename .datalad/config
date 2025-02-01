@@ -4,3 +4,6 @@
 	image = containers/images/bids/bids-fmriprep--20.2.6.sing
 	cmdexec = {img_dspath}/containers/scripts/singularity_cmd run {img} {cmd}
 	updateurl = shub://ReproNim/containers:bids-fmriprep--20.2.0
+[datalad "get"]
+	subdataset-source-candidate-620cneuromodhttp = https://github.com/courtois-neuromod/{name}.git
+	subdataset-source-candidate-625cneuromodhttp = https://github.com/courtois-neuromod/anat.{name}.git
