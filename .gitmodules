@@ -2,19 +2,19 @@
 	path = sourcedata/templateflow
 	url = https://github.com/templateflow/templateflow.git
 	datalad-id = c79c47b6-d0fb-11e8-aa11-64006a8a730f
-	datalad-url = ///templateflow
+	datalad-url = https://github.com/templateflow/templateflow.git
 [submodule "containers"]
 	path = containers
 	url = git@github.com:courtois-neuromod/containers.git
 	datalad-id = b02e63c2-62c1-11e9-82b0-52540040489c
-	datalad-url = ///repronim/containers
+	datalad-url = https://github.com/ReproNim/containers.git
 [submodule "smriprep"]
 	path = sourcedata/smriprep
 	url = git@github.com:courtois-neuromod/anat.smriprep.git
 	datalad-id = f3ef9683-0a58-4d2b-b4eb-d33d8fc3fd2b
-	datalad-url = git@github.com:courtois-neuromod/anat.smriprep.git
+	datalad-url = https://github.com/courtois-neuromod/anat.smriprep.git
 [submodule "friends"]
 	path = sourcedata/friends
 	url = git@github.com:courtois-neuromod/friends.git
 	datalad-id = 66738676-1d20-11ea-9a9e-3ea8d101da1a
-	datalad-url = git@github.com:courtois-neuromod/friends.git
+	datalad-url = https://github.com/courtois-neuromod/friends.git
